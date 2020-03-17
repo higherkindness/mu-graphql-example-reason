@@ -1,0 +1,31 @@
+{
+  "name": "mu-graphql-example-reason",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w -ws _ ",
+    "clean": "bsb -clean-world",
+    "server": "moduleserve ./ --port 8000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mu-haskell",
+    "graphql",
+    "reason",
+    "reason-react"
+  ],
+  "author": "Flavio Corpa <flavio.corpa@47deg.com>",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-to-json-converter": "^1.2.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "reason-react": ">=0.7.0"
+  },
+  "devDependencies": {
+    "@baransu/graphql_ppx_re": "^0.7.1",
+    "bs-platform": "^7.0.0",
+    "moduleserve": "^0.9.0",
+    "reason-apollo": "^0.18.0"
+  }
+}

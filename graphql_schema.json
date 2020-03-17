@@ -1,0 +1,66 @@
+{
+  "type": {
+    "Author": {
+      "name": {
+        "type": "String",
+        "array": false,
+        "required": false
+      },
+      "books": {
+        "type": "Book",
+        "array": true,
+        "required": false
+      }
+    },
+    "Book": {
+      "author": {
+        "type": "Author",
+        "array": false,
+        "required": false
+      },
+      "title": {
+        "type": "String",
+        "array": false,
+        "required": false
+      }
+    },
+    "Query": {
+      "author": {
+        "args": {
+          "name": {
+            "type": "String",
+            "array": false,
+            "required": false
+          }
+        },
+        "type": "Author",
+        "array": false,
+        "required": false
+      },
+      "authors": {
+        "args": {},
+        "type": "Author",
+        "array": true,
+        "required": false
+      },
+      "book": {
+        "args": {
+          "title": {
+            "type": "String",
+            "array": false,
+            "required": false
+          }
+        },
+        "type": "Book",
+        "array": false,
+        "required": false
+      },
+      "books": {
+        "args": {},
+        "type": "Book",
+        "array": true,
+        "required": false
+      }
+    }
+  }
+}
