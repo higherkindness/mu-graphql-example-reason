@@ -2,8 +2,13 @@
 
 var React = require("react");
 var ReactDom = require("react-dom");
+var ApolloLinks = require("reason-apollo/src/ApolloLinks.bs.js");
+var ReasonApollo = require("reason-apollo/src/ReasonApollo.bs.js");
+var ReactApollo = require("react-apollo");
+var ReactHooks = require("@apollo/react-hooks");
+var ApolloInMemoryCache = require("reason-apollo/src/ApolloInMemoryCache.bs.js");
 var ExampleStyles$ReasonReactExamples = require("./ExampleStyles.bs.js");
-var ReducerFromReactJSDocs$ReasonReactExamples = require("./ReducerFromReactJSDocs/ReducerFromReactJSDocs.bs.js");
+var GraphQLAuthorQuery$ReasonReactExamples = require("./GraphQLAuthorQuery.bs.js");
 
 var style = document.createElement("style");
 
@@ -25,8 +30,26 @@ function makeContainer(text) {
   return content;
 }
 
-ReactDom.render(React.createElement(ReducerFromReactJSDocs$ReasonReactExamples.make, { }), makeContainer("Reducer From ReactJS Docs"));
+var inMemoryCache = ApolloInMemoryCache.createInMemoryCache(undefined, undefined, /* () */0);
+
+var httpLink = ApolloLinks.createHttpLink("http://localhost:8080", undefined, undefined, undefined, undefined, undefined, /* () */0);
+
+var client = ReasonApollo.createApolloClient(httpLink, inMemoryCache, undefined, undefined, undefined, undefined, /* () */0);
+
+var app = React.createElement(ReactHooks.ApolloProvider, {
+      client: client,
+      children: React.createElement(GraphQLAuthorQuery$ReasonReactExamples.make, { })
+    });
+
+ReactDom.render(React.createElement(ReactApollo.ApolloProvider, {
+          client: client,
+          children: app
+        }), makeContainer("GraphQL"));
 
 exports.style = style;
 exports.makeContainer = makeContainer;
+exports.inMemoryCache = inMemoryCache;
+exports.httpLink = httpLink;
+exports.client = client;
+exports.app = app;
 /* style Not a pure module */

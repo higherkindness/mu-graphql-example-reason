@@ -22,9 +22,27 @@ let makeContainer = text => {
   content;
 };
 
+/* Create an InMemoryCache */
+let inMemoryCache = ApolloInMemoryCache.createInMemoryCache();
+
+/* Create an HTTP Link */
+let httpLink =
+  ApolloLinks.createHttpLink(~uri="http://localhost:8080", ());
+
+let client =
+  ReasonApollo.createApolloClient(~link=httpLink, ~cache=inMemoryCache, ());
+
+
+
+
+let app =
+ <ApolloHooks.Provider client>
+   <GraphQLAuthorQuery />
+ </ApolloHooks.Provider>
+
 ReactDOMRe.render(
-  <ReasonApollo.Provider client=Client.instance>
-    <GraphQLAuthorQuery />
+  <ReasonApollo.Provider client>
+    app
   </ReasonApollo.Provider>,
   makeContainer("GraphQL"),
 );
