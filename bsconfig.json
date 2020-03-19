@@ -17,7 +17,7 @@
       "in-source": true
     }
   ],
-  "suffix": ".bs.js",
+  "suffix": ".js",
   "namespace": true,
   "bs-dependencies": [
     "reason-react",

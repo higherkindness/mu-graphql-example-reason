@@ -11,9 +11,7 @@ let client =
 
 ReactDOMRe.renderToElementWithId(
   <ReasonApollo.Provider client>
-    <ApolloHooks.Provider client>
-      <GraphQLAuthorQuery />
-    </ApolloHooks.Provider>
+    <ApolloHooks.Provider client> <AuthorQuery /> </ApolloHooks.Provider>
   </ReasonApollo.Provider>,
   "root",
 );

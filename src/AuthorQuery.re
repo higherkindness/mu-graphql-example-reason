@@ -29,13 +29,11 @@ let make = () => {
          <h1> {React.string(data##author##name)} </h1>
          {switch (data##author##books) {
           | Some(books) =>
-            <p>
-              {React.string(
-                 books
-                 ->Js.Array2.map(book => book##title)
-                 ->Js.Array2.joinWith(","),
-               )}
-            </p>
+            React.array(
+              books->Js.Array2.map(book =>
+                <p> {React.string(book##title)} </p>
+              ),
+            )
           | None => <p> {React.string("This author has no books!")} </p>
           }}
        </div>

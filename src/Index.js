@@ -7,8 +7,8 @@ var ReasonApollo = require("reason-apollo/src/ReasonApollo.bs.js");
 var ReactApollo = require("react-apollo");
 var ReactHooks = require("@apollo/react-hooks");
 var ApolloInMemoryCache = require("reason-apollo/src/ApolloInMemoryCache.bs.js");
-var Styles$ReasonReactExamples = require("./Styles.bs.js");
-var GraphQLAuthorQuery$ReasonReactExamples = require("./GraphQLAuthorQuery.bs.js");
+var Styles$ReasonReactExamples = require("./Styles.js");
+var AuthorQuery$ReasonReactExamples = require("./AuthorQuery.js");
 
 var style = document.createElement("style");
 
@@ -26,7 +26,7 @@ ReactDOMRe.renderToElementWithId(React.createElement(ReactApollo.ApolloProvider,
           client: client,
           children: React.createElement(ReactHooks.ApolloProvider, {
                 client: client,
-                children: React.createElement(GraphQLAuthorQuery$ReasonReactExamples.make, { })
+                children: React.createElement(AuthorQuery$ReasonReactExamples.make, { })
               })
         }), "root");
 

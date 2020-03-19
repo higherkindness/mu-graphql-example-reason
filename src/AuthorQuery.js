@@ -130,7 +130,7 @@ var GetAuthorByName = {
   MT_Ret: MT_Ret
 };
 
-function GraphQLAuthorQuery(Props) {
+function AuthorQuery(Props) {
   var author = make("nde", /* () */0);
   var match = ApolloHooks.useQuery(undefined, Caml_option.some(author.variables), undefined, undefined, undefined, undefined, undefined, definition);
   var simple = match[0];
@@ -142,14 +142,14 @@ function GraphQLAuthorQuery(Props) {
   } else {
     var data = simple[0];
     var match$1 = data.author.books;
-    tmp = React.createElement("div", undefined, React.createElement("h1", undefined, data.author.name), match$1 !== undefined ? React.createElement("p", undefined, match$1.map((function (book) {
-                        return book.title;
-                      })).join(",")) : React.createElement("p", undefined, "This author has no books!"));
+    tmp = React.createElement("div", undefined, React.createElement("h1", undefined, data.author.name), match$1 !== undefined ? match$1.map((function (book) {
+                  return React.createElement("p", undefined, book.title);
+                })) : React.createElement("p", undefined, "This author has no books!"));
   }
   return React.createElement("div", undefined, tmp);
 }
 
-var make$1 = GraphQLAuthorQuery;
+var make$1 = AuthorQuery;
 
 exports.GetAuthorByName = GetAuthorByName;
 exports.make = make$1;
