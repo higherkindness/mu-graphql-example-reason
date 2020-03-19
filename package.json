@@ -5,7 +5,7 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w -ws _ ",
     "clean": "bsb -clean-world",
-    "server": "moduleserve ./ --port 8000",
+    "server": "moduleserve ./ --port 3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -21,7 +21,7 @@
     "graphql-to-json-converter": "^1.2.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "reason-apollo-hooks": "git@github.com:tcoopman/reason-apollo-hooks.git#compatible_with_removing_type_annotations_from_reason_apollo",
+    "reason-apollo-hooks": "git://github.com:tcoopman/reason-apollo-hooks#compatible_with_removing_type_annotations_from_reason_apollo",
     "reason-react": ">=0.7.0"
   },
   "devDependencies": {

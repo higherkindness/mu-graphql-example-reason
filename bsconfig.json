@@ -24,6 +24,8 @@
     "reason-apollo",
     "reason-apollo-hooks"
   ],
-  "ppx-flags": ["@baransu/graphql_ppx_re/ppx"],
+  "ppx-flags": [
+    "@baransu/graphql_ppx_re/ppx"
+  ],
   "refmt": 3
 }
