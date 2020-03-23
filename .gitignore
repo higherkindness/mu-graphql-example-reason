@@ -7,3 +7,4 @@ npm-debug.log
 /bundleOutput/
 .graphql_ppx_cache
 package-lock.json
+/src/*.js

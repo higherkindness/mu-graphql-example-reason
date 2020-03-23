@@ -37,4 +37,12 @@ let style = {j|
     padding: 16px;
     border-radius: 0px 0px 12px 12px;
   }
+  .containerContent input {
+    outline: 0;
+    width: 98%;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid $blue;
+    border-radius: 3px;
+  }
 |j};

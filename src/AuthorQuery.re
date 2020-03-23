@@ -17,11 +17,18 @@ module GetAuthorByName = [%graphql
 
 [@react.component]
 let make = () => {
-  let author = GetAuthorByName.make(~name="nde", ());
+  let (name, setName) = React.useState(() => "nde");
+  let author = GetAuthorByName.make(~name, ());
   let (simple, _full) =
     useQuery(~variables=author##variables, GetAuthorByName.definition);
 
   <div>
+    <input
+      type_="text"
+      placeholder="author name!"
+      onChange={e => setName(e->ReactEvent.Form.target##value)}
+      value=name
+    />
     {switch (simple) {
      | Loading => <p> {React.string("Loading...")} </p>
      | Data(data) =>
@@ -31,7 +38,7 @@ let make = () => {
           | Some(books) =>
             React.array(
               books->Js.Array2.map(book =>
-                <p> {React.string(book##title)} </p>
+                <p key=book##title> {React.string(book##title)} </p>
               ),
             )
           | None => <p> {React.string("This author has no books!")} </p>
